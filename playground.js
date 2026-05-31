@@ -1,12 +1,12 @@
-function getAverageAge(users) {
-  return users.reduce((prev, user) => prev + user.age, 0) / users.length;
+function unique(arr) {
+  let result = [];
+  for (let str of arr) {
+    if (!result.includes(str)) {
+      result.push(str);
+    }
+  }
+  return result;
 }
 
-let john = { name: "John", age: 25 };
-let pete = { name: "Pete", age: 59 };
-let mary = { name: "Mary", age: 30 };
-
-let users = [john, mary, pete];
-
-let averageAge = getAverageAge(users);
-console.log(averageAge);
+let testArray = ["test", "test2", "test1", "test", "test2", "test3"];
+console.log(unique(testArray));
