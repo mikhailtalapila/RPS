@@ -1,16 +1,14 @@
 function groupById(array) {
   return array.reduce((obj, value) => {
-    obj[value.id] = value;
+    obj[value.id] = { ...value, updatedOn: Date.now() };
     return obj;
   }, {});
 }
 
-let users = [
-  { id: "john", name: "John Smith", age: 20 },
-  { id: "anne", name: "Ann Smith", age: 24 },
-  { id: "pete", name: "Pete Petersen", age: 31 },
-];
+let firstEvent = { id: 123, name: "Test Event 123", date: "2026-01-01" };
+let secondEvent = { id: 124, name: "Test Event 124", date: "2026-10-10" };
+let thirdEvent = { id: 125, name: "Test Event 125", date: "2026-12-12" };
 
-let usersById = groupById(users);
+let events = [firstEvent, secondEvent, thirdEvent];
 
-console.log(usersById);
+console.log(groupById(events));
