@@ -1,10 +1,22 @@
-function sortByAge(arr) {
-  return arr.sort((a, b) => a.age - b.age);
+function shuffle(arr) {
+  return arr.sort(() => Math.random() - 0.5);
 }
 
-let john = { name: "John", age: 25 };
-let pete = { name: "Pete", age: 39 };
-let mary = { name: "Mary", age: 27 };
+let counts = {
+  123: 0,
+  132: 0,
+  213: 0,
+  231: 0,
+  312: 0,
+  321: 0,
+};
 
-let arr = [john, pete, mary];
-console.log(sortByAge(arr));
+for (let i = 0; i <= 1000000; i++) {
+  let arr = [1, 2, 3];
+  shuffle(arr);
+  counts[arr.join("")]++;
+}
+
+for (let key in counts) {
+  console.log(`${key} ${counts[key]}`);
+}
