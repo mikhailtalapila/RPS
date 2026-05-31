@@ -1,10 +1,10 @@
-let john = { name: "John", surname: "Smith", id: 1 };
-let mary = { name: "Mary", surname: "Johnson", id: 2 };
+function sortByAge(arr) {
+  return arr.sort((a, b) => a.age - b.age);
+}
 
-let users = [john, mary];
-let mappedUsers = users.map((user) => ({
-  fullName: `${user.name} ${user.surname}`,
-  id: user.id,
-}));
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 39 };
+let mary = { name: "Mary", age: 27 };
 
-console.log(mappedUsers);
+let arr = [john, pete, mary];
+console.log(sortByAge(arr));
