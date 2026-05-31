@@ -1,12 +1,16 @@
-function unique(arr) {
-  let result = [];
-  for (let str of arr) {
-    if (!result.includes(str)) {
-      result.push(str);
-    }
-  }
-  return result;
+function groupById(array) {
+  return array.reduce((obj, value) => {
+    obj[value.id] = value;
+    return obj;
+  }, {});
 }
 
-let testArray = ["test", "test2", "test1", "test", "test2", "test3"];
-console.log(unique(testArray));
+let users = [
+  { id: "john", name: "John Smith", age: 20 },
+  { id: "anne", name: "Ann Smith", age: 24 },
+  { id: "pete", name: "Pete Petersen", age: 31 },
+];
+
+let usersById = groupById(users);
+
+console.log(usersById);
