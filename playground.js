@@ -1,22 +1,12 @@
-function shuffle(arr) {
-  return arr.sort(() => Math.random() - 0.5);
+function getAverageAge(users) {
+  return users.reduce((prev, user) => prev + user.age, 0) / users.length;
 }
 
-let counts = {
-  123: 0,
-  132: 0,
-  213: 0,
-  231: 0,
-  312: 0,
-  321: 0,
-};
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 59 };
+let mary = { name: "Mary", age: 30 };
 
-for (let i = 0; i <= 1000000; i++) {
-  let arr = [1, 2, 3];
-  shuffle(arr);
-  counts[arr.join("")]++;
-}
+let users = [john, mary, pete];
 
-for (let key in counts) {
-  console.log(`${key} ${counts[key]}`);
-}
+let averageAge = getAverageAge(users);
+console.log(averageAge);
