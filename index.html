@@ -10,69 +10,12 @@
       <li><button class="rock">Rock</button></li>
       <li><button class="paper">Paper</button></li>
       <li><button class="scissors">Scissors</button></li>
+      <li><button class="start">Play new Game</button></li>
     </ul>
     <div class="humanChoice"></div>
     <div class="computerChoice"></div>
     <div class="currentScore"></div>
-    <div class="finalResult"></div>
-    <script>
-      function getComputerChoice() {
-        return Math.floor(Math.random() * 100);
-      }
-      function getHumanChoice() {
-        return prompt("Make a pick");
-      }
-      function getRPSObject(number) {
-        if (number > 66) {
-          return "scissors";
-        } else if (number > 33) {
-          return "paper";
-        } else {
-          return "rock";
-        }
-      }
-      playGame();
-
-      function playGame() {
-        let computerScore = 0;
-        let humanScore = 0;
-        const buttons = document.querySelectorAll("button");
-        console.log(buttons);
-        buttons.forEach((button) => {
-          button.addEventListener("click", function (event) {
-            console.log(event.currentTarget.textContent);
-          });
-        });
-
-        // const humanSelection = getHumanChoice();
-
-        const computerSelection = getRPSObject(getComputerChoice());
-
-        // playRound(humanSelection, computerSelection);
-        console.log(
-          `\nCURRENT SCORE: Human Score: ${humanScore} - Computer Score: ${computerScore}\n`,
-        );
-
-        function playRound(humanChoice, computerChoice) {
-          humanChoice = humanChoice.toUpperCase();
-          computerChoice = computerChoice.toUpperCase();
-          if (humanChoice === "ROCK" && computerChoice === "PAPER") {
-            computerScore++;
-          } else if (humanChoice === "ROCK" && computerChoice === "SCISSORS") {
-            humanScore++;
-          } else if (humanChoice === computerChoice) {
-            console.log("TIE!");
-          } else if (humanChoice === "SCISSORS" && computerChoice === "ROCK") {
-            computerScore++;
-          } else if (humanChoice === "SCISSORS" && computerChoice === "PAPER") {
-            humanScore++;
-          } else if (humanChoice === "PAPER" && computerChoice === "ROCK") {
-            humanScore++;
-          } else if (humanChoice === "PAPER" && computerChoice === "SCISSORS") {
-            computerScore++;
-          }
-        }
-      }
-    </script>
+    <div class="result"></div>
+    <script src="script.js"></script>
   </body>
 </html>
